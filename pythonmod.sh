@@ -100,7 +100,6 @@ install_python () {
 if [ -z "$1" ]; then
     echo "Sorry you did not provide a version number. (eg. 3.10.0)"
     echo "bash python.sh 3.10.0"
-    install_python "3.10.2"
 else
     install_python "$1"
 fi
