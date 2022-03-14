@@ -44,6 +44,7 @@ install_python () {
     def compare_version():
         new = $new_version
         old = $old_version
+        print("doing something")
         for i in range(len(old)):
             if old[i] > new[i]:
                 print(f"old wins with {old[i]} at index {i}")
@@ -58,7 +59,7 @@ install_python () {
     END)
 
     res="$(python -c "$PYTHON_COMPARE")"
-    echo $res
+    echo "$res"
     if [ "$old_version" = "$new_version" ]; then
         echo "Are you trying to reinstall the current version!?"
         read -r -p 'Yes/n >>>' redo
