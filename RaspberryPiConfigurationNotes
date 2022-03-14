@@ -1,0 +1,9 @@
+#! sudo nano /etc/environment
+CHROMIUM-USER-FLAG=--force-device-scale-factor=1.5
+
+# add desktop panels, use obconf. 
+#! obconf
+
+# Any other method of adding desktop pages will corrupt
+# the desktop. If the file is corrupted, you can delete
+#! sudo rm ~/.config/openbox/lxde-pi-rc.xml 
