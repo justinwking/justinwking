@@ -54,7 +54,7 @@ install_python () {
             else:
                 equality=0
         return equality
-    print(compare_version(new,old))
+    print(compare_version())
     END)
 
     res="$(python -c "$PYTHON_COMPARE")"
