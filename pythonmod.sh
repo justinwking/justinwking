@@ -5,7 +5,7 @@ install_python () {
     file="Python-${new_version}.tar.xz"
     url="https://www.python.org/ftp/python/${new_version}/${file}"
 
-    old_version=$(python -c 'import platform; print("3.10.3")')
+    old_version=$(python -c 'import platform; print("3.10.0")')
 
     if [ "$(printf '%s\n' "$new_version" "$old_version" | sort -V | head -n1)" = "$new_version" ]; then
         echo "You are trying to install an older version than your current version!"
