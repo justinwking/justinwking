@@ -12,6 +12,12 @@ CHROMIUM-USER-FLAG=--force-device-scale-factor=1.5
 # the desktop. If the file is corrupted, you can delete
 #! sudo rm ~/.config/openbox/lxde-pi-rc.xml 
 
+#Install visual studio code
+#! sudo apt install code
+
+# Install inkscape
+#! sudo apt install inkscape
+
 # How I install python 3.10.2
 # I do it system wide because I want all of my projects to use his version or better.
 #! wget -qO - https://raw.githubusercontent.com/tvdsluijs/sh-python-installer/main/python.sh | sudo bash -s 3.10.2
