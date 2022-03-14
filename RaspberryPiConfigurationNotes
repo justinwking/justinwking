@@ -1,12 +1,12 @@
 #! sudo nano /etc/environment
+# I am not certain whether it works or is needed.
 CHROMIUM-USER-FLAG=--force-device-scale-factor=1.5
-
-# add desktop panels, use obconf. 
-#! obconf
 
 # expand swap storage 
 #! sudo nano /etc/dphys-swapfile 
 
+# add desktop panels, use obconf. 
+#! obconf
 
 # Any other method of adding desktop pages will corrupt
 # the desktop. If the file is corrupted, you can delete
