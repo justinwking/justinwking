@@ -43,7 +43,7 @@ install_python () {
     elif [ "$old_version" = "$new_version" ]; then
         echo "Are you trying to reinstall the current version!?"
         read -r -p 'Yes/n >>>' redo
-        printf '%q\n\ "$redo"
+        printf '%q\n\' "$redo"
         exit 0
     fi
 
