@@ -38,8 +38,8 @@ install_python () {
 
     if [ "$old_version" > "$new_version" ]; then
         echo "You are trying to install an older version than your current version!"
-        echo $old_version
-        echo $new_version
+        printf 'the old version is %s.' "$old_version"
+        printf 'the new version is %s.' "$new_version"
         echo "Exiting this script!"
         exit 0
     elif [ "$old_version" = "$new_version" ]; then
