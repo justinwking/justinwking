@@ -36,13 +36,15 @@ install_python () {
 
     old_version=$(python -c 'import platform; print(platform.python_version())')
 
-    if [ "$(printf '%s\n' "$new_version" "$old_version" | sort -V | head -n1)" > "$new_version" ]; then
+    if [ "$old_version" > "$new_version" ]; then
         echo "You are trying to install an older version than your current version!"
         echo "Exiting this script!"
         exit 0
-    elif
-    
-       
+    elif [ "$old_version" = "$new_version" ]; then
+        echo "Are you trying to reinstall the current version!?"
+        read -r -p 'Yes/n >>>' redo
+        printf '%q\n\ "$redo"
+        exit 0
     fi
 
     echo "Your current Python version is: ${old_version}"
