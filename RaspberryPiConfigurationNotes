@@ -4,6 +4,20 @@ CHROMIUM-USER-FLAG=--force-device-scale-factor=1.5
 # add desktop panels, use obconf. 
 #! obconf
 
+# expand swap storage 
+#! sudo nano /etc/d
+
 # Any other method of adding desktop pages will corrupt
 # the desktop. If the file is corrupted, you can delete
 #! sudo rm ~/.config/openbox/lxde-pi-rc.xml 
+
+# How I install python 3.10.2
+# I do it system wide because I want all of my projects to use his version or better.
+#! wget -qO - https://raw.githubusercontent.com/tvdsluijs/sh-python-installer/main/python.sh | sudo bash -s 3.10.2
+
+#important packages to install include
+# 1) numpy
+# 2) picamera
+# 3) rich
+# 4) opencv-python (this is a complex install, certain dependencies should be installed in advance)
+
