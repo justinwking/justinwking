@@ -27,6 +27,9 @@
 # or via github by
 # wget -qO - https://raw.githubusercontent.com/tvdsluijs/raspberry_python_sh_install/main/python.sh | sudo bash -s 3.10.0
 
+
+
+
 install_python () {
 
     new_version="$1"
@@ -36,17 +39,40 @@ install_python () {
 
     old_version=$(python -c 'import platform; print(platform.python_version())')
 
-    if [ "$old_version" > "$new_version" ]; then
-        echo "You are trying to install an older version than your current version!"
-        printf 'the old version is %s.' "$old_version"
-        printf 'the new version is %s.' "$new_version"
-        echo "Exiting this script!"
-        exit 0
-    elif [ "$old_version" = "$new_version" ]; then
+    PYTHON_COMPARE=$(cat <<END
+    # python code starts here
+    def compare_version():
+        new = $new_version
+        old = $old_version
+        for i in range(len(old)):
+            if old[i] > new[i]:
+                print(f"old wins with {old[i]} at index {i}")
+                return -1
+            elif old[i] < new[i]:
+                print(f"new wins with {new[i]} at index {i}")
+                return 1
+            else:
+                equality=0
+        return equality
+    print(compare_version(new,old))
+    END)
+
+    res="$(python -c "$PYTHON_COMPARE")"
+    echo $res
+    if [ "$old_version" = "$new_version" ]; then
         echo "Are you trying to reinstall the current version!?"
         read -r -p 'Yes/n >>>' redo
-        printf '%q\n\' "$redo"
+        printf '%q\n' "$redo"
         exit 0
+        
+    elif [ "$old_version" > "$new_version" ]; then
+        echo "You are trying to install an older version than your current version!"
+        printf 'the old version is %s and ' "$old_version"
+        printf 'the new version is %s.\n' "$new_version"
+        echo "Exiting this script!"
+        exit 0
+
+
     fi
 
     echo "Your current Python version is: ${old_version}"
