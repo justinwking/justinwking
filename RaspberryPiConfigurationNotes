@@ -5,7 +5,8 @@ CHROMIUM-USER-FLAG=--force-device-scale-factor=1.5
 #! obconf
 
 # expand swap storage 
-#! sudo nano /etc/d
+#! sudo nano /etc/dphys-swapfile 
+
 
 # Any other method of adding desktop pages will corrupt
 # the desktop. If the file is corrupted, you can delete
